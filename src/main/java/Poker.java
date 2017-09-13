@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.Map;
+
 public class Poker {
 
     public static void main(String[] args) {
@@ -14,6 +17,9 @@ public class Poker {
         }
 
         System.out.println(hand);
+        System.out.println(hand.getClassification());
+
+
 
     }
 }
