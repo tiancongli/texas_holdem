@@ -1,29 +1,28 @@
 import java.util.List;
 
 public enum Classification {
-    STRAIGHT_FLUSH("r0-high_straight_flush"),
-    FOUR_OF_A_KIND("Four_r0s"),
-    FULL_HOUSE("r0s_full_of_r1s"),
-    FLUSH("r0-high_flush"),
-    STRAIGHT("r0-high_straight"),
-    THREE_OF_A_KIND("Three_r0s"),
-    TWO_PAIR("r0s_over_r1s"),
+
+    HIGH_CARD("r0-high"),
     ONE_PAIR("Pair_of_r0s"),
-    HIGH_CARD("r0-high");
+    TWO_PAIR("r0s_over_r1s"),
+    THREE_OF_A_KIND("Three_r0s"),
+    STRAIGHT("r0-high_straight"),
+    FLUSH("r0-high_flush"),
+    FULL_HOUSE("r0s_full_of_r1s"),
+    FOUR_OF_A_KIND("Four_r0s"),
+    STRAIGHT_FLUSH("r0-high_straight_flush");
 
-    private String desc;
+    private String template;
 
-    Classification (String desc) {
-        this.desc = desc;
+    Classification (String template) {
+        this.template = template;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(List<Rank> ranks) {
+    public String getDescByRanks(List<Rank> ranks) {
+        String desc = this.template;
         for (int i = 0; i < ranks.size(); i++) {
-            this.desc = this.desc.replace(String.format("r%d", i), ranks.get(i).toString());
+            desc = desc.replace(String.format("r%d", i), ranks.get(i).getName());
         }
+        return desc;
     }
 }
