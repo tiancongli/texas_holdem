@@ -2,13 +2,13 @@ import java.util.*;
 
 public class Hand implements Comparable<Hand> {
     private Classification classification;
-    private Card[] cards;
+    private List<Card> cards;
     private Map<Integer, TreeSet<Rank>> repeats;
     private List<Rank> descRanks;
-    private static final int CARDS_NUM = 5;
+    public static final int CARDS_NUM = 5;
 
     public Hand() {
-        this.cards = new Card[CARDS_NUM];
+        this.cards = new ArrayList<>();
         this.repeats = new TreeMap<>();
         this.descRanks = new ArrayList<>();
     }
@@ -17,9 +17,9 @@ public class Hand implements Comparable<Hand> {
         return classification.getDescByRanks(descRanks);
     }
 
-    public void setCard(int number, Card card) {
-        cards[number] = card;
-        if (cards[CARDS_NUM-1] != null) {
+    public void addCard(Card card) {
+        cards.add(card);
+        if (cards.size() == CARDS_NUM) {
             this.sortHand();
             this.setAllRepeats();
             this.classify();
@@ -31,7 +31,7 @@ public class Hand implements Comparable<Hand> {
     }
 
     public Card getCard(int number) {
-        return cards[number];
+        return cards.get(number);
     }
 
 
@@ -119,10 +119,10 @@ public class Hand implements Comparable<Hand> {
 
     private Map<Rank, Integer> getPartition() {
         Map<Rank, Integer> result = new TreeMap<>();
-        for (int i = 0; i < CARDS_NUM; i++) {
-            Rank rank = cards[i].getRank();
+        for (Card card : cards) {
+            Rank rank = card.getRank();
             if (!result.containsKey(rank)) {
-               result.put(rank, 0);
+                result.put(rank, 0);
             }
             result.put(rank, result.get(rank) + 1);
         }
@@ -131,7 +131,7 @@ public class Hand implements Comparable<Hand> {
 
     private boolean isFlush() {
         for (int i = 1; i < CARDS_NUM; i++) {
-            if (cards[i].getSuit() != cards[i-1].getSuit()) {
+            if (cards.get(i).getSuit() != cards.get(i-1).getSuit()) {
                 return false;
             }
         }
@@ -140,7 +140,7 @@ public class Hand implements Comparable<Hand> {
 
     private boolean isStraight() {
         for (int i = 1; i < CARDS_NUM; i++) {
-            if (cards[i].compareTo(cards[i-1]) != 1) {
+            if (cards.get(i).getRank().ordinal() - cards.get(i-1).getRank().ordinal() != 1) {
                 return false;
             }
         }
@@ -151,7 +151,7 @@ public class Hand implements Comparable<Hand> {
         List<Rank> ranks = new ArrayList<>();
 
         if (isStraight() & isFlush()) {
-            ranks.add(cards[CARDS_NUM - 1].getRank());
+            ranks.add(cards.get(CARDS_NUM - 1).getRank());
             classification = Classification.STRAIGHT_FLUSH;
         } else if (repeats.get(4).size() == 1) {
             ranks.add(repeats.get(4).first());
@@ -161,10 +161,10 @@ public class Hand implements Comparable<Hand> {
             ranks.add(repeats.get(2).first());
             classification = Classification.FULL_HOUSE;
         } else if (isFlush()) {
-            ranks.add(cards[CARDS_NUM - 1].getRank());
+            ranks.add(cards.get(CARDS_NUM -1).getRank());
             classification = Classification.FLUSH;
         } else if (isStraight()) {
-            ranks.add(cards[CARDS_NUM - 1].getRank());
+            ranks.add(cards.get(CARDS_NUM -1).getRank());
             classification = Classification.STRAIGHT;
         } else if (repeats.get(3).size() == 1) {
             ranks.add(repeats.get(3).first());
@@ -177,14 +177,14 @@ public class Hand implements Comparable<Hand> {
             ranks.add(repeats.get(2).first());
             classification = Classification.ONE_PAIR;
         } else {
-            ranks.add(cards[CARDS_NUM - 1].getRank());
+            ranks.add(cards.get(CARDS_NUM -1).getRank());
             classification = Classification.HIGH_CARD;
         }
         this.descRanks = ranks;
     }
 
     public void sortHand() {
-        Arrays.sort(this.cards);
+        Collections.sort(this.cards);
     }
 
 }
