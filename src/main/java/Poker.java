@@ -1,29 +1,45 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.TreeSet;
-
+/**
+ * The class of the entry of the poker game.
+ * Parse the command line input, start the game and print the game result.
+ *
+ * @author Tiancong Li
+ */
 public class Poker {
 
+    /**
+     * The main entry of the program.
+     */
     public static void main(String[] args) {
+        // Check the number of args.
         if (args.length == 0 | args.length % 5 != 0) {
-            System.out.println("Error:_wrong_number_of_arguments;_must_be_a_multiple_of_5");
+            System.out.println("Error:_wrong_number_of_arguments;" +
+                    "_must_be_a_multiple_of_5");
             System.exit(1);
         }
 
         Game game = new Game();
         Hand hand = new Hand();
         Player player;
+
         for (int i = 0; i < args.length; i++) {
+            // every time a new 5 cards occurs, init a new hand for it.
             if (i % Hand.CARDS_NUM == 0) hand = new Hand();
+
+            // init a card and add it to the hand.
             hand.addCard(new Card(args[i]));
+
+            // every time when a hand gets 5 cards, init a player for it and
+            // add the player to the game.
             if (i % Hand.CARDS_NUM == Hand.CARDS_NUM - 1) {
                 player = new Player(i/Hand.CARDS_NUM + 1, hand);
                 game.addPlayer(player);
+
+                // print the player's hand's description(classification).
                 System.out.println(player);
             }
         }
 
+        // print the game result.
         System.out.println(game.getResult());
 
         /*Hand hand1 = new Hand();
