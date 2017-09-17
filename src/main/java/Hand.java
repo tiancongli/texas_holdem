@@ -41,12 +41,18 @@ public class Hand implements Comparable<Hand> {
     private List<Rank> descRanks;
 
     /**
-     * Init the hand.
+     * Init the hand, and init the cards in it.
+     * @param rankSuits a list of rankSuit, which represents the combination
+     *                 of rank and suit, such as "AH"
      */
-    public Hand() {
+    public Hand(List<String> rankSuits) {
         cards = new ArrayList<>();
         repeats = new TreeMap<>();
         descRanks = new ArrayList<>();
+
+        for (String rankSuit : rankSuits) {
+            addCard(new Card(rankSuit));
+        }
     }
 
     /**

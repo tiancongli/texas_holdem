@@ -1,6 +1,5 @@
 /**
- * The enum type of poker suits, including Clubs (♣), Diamonds (♦), Hearts (♥),
- * and Spades (♠).
+ * The enum type of poker suits, including Clubs, Diamonds, Hearts, and Spades.
  *
  * @author Tiancong Li
  */

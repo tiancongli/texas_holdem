@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -19,11 +20,33 @@ public class Game {
     private List<Player> winners;
 
     /**
-     * Constructs the game and init the players and winners.
+     * Constructs the game, and init the players and winners.
+     * @param rankSuits a list of rankSuit, which represents the combination
+     *                 of rank and suit, such as "AH"
      */
-    public Game() {
+    public Game(List<String> rankSuits) {
         players = new ArrayList<>();
         winners = new ArrayList<>();
+
+        // add players to the game.
+        for (int i = 0; i < rankSuits.size(); i++) {
+            if (i % Hand.CARDS_NUM == 0) {
+                addPlayer(new Player(i/Hand.CARDS_NUM + 1, rankSuits.subList
+                        (i, i + Hand.CARDS_NUM)));
+            }
+        }
+
+    }
+
+    public Player getPlayer(int index) {
+        return players.get(index);
+    }
+
+    /**
+     * Get the total player number
+     */
+    public int getPlayersNumber() {
+        return players.size();
     }
 
     /**

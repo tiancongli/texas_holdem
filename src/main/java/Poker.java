@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * The class of the entry of the poker game.
  * Parse the command line input, start the game and print the game result.
@@ -17,6 +21,21 @@ public class Poker {
             System.exit(1);
         }
 
+        // init the list of rankSuit as input
+        List<String> rankSuits = new ArrayList<>(Arrays.asList(args));
+
+        // create the game.
+        Game game = new Game(rankSuits);
+
+        // print all players.
+        for (int i = 0; i < game.getPlayersNumber(); i++) {
+            System.out.println(game.getPlayer(i));
+        }
+
+        // print the game result.
+        System.out.println(game.getResult());
+
+        /*
         Game game = new Game();
         Hand hand = new Hand();
         Player player;
