@@ -4,6 +4,7 @@
  * Queen, King, and Ace.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public enum  Rank {
     TWO("2", "2"),
@@ -52,7 +53,7 @@ public enum  Rank {
      */
     public static Rank getRankByAlias(String alias) {
         for (Rank rank : Rank.values()) {
-            if (rank.alias.equals(alias)) {
+            if (rank.alias.equals(alias.toUpperCase())) {
                 return rank;
             }
         }

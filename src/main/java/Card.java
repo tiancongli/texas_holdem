@@ -3,6 +3,7 @@
  * Use rank and suit as the components.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public class Card implements Comparable<Card> {
 

@@ -7,6 +7,7 @@ import java.util.*;
  * hands.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public class Hand implements Comparable<Hand> {
 
@@ -297,16 +298,5 @@ public class Hand implements Comparable<Hand> {
             return compareRanks(ranks, anotherRanks);
         }
     }
-
-/*
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (Card card : cards) {
-            result.append(card).append("\n");
-        }
-        return result.toString();
-    }
-*/
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
  * The implementation of Game.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public class Game {
     /**

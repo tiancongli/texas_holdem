@@ -2,6 +2,7 @@
  * The enum type of poker suits, including Clubs, Diamonds, Hearts, and Spades.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public enum Suit {
     CLUB("C"),
@@ -29,7 +30,7 @@ public enum Suit {
      */
     public static Suit getSuitByAlias(String alias) {
         for (Suit suit : Suit.values()) {
-            if (suit.alias.equals(alias)) {
+            if (suit.alias.equals(alias.toUpperCase())) {
                 return suit;
             }
         }

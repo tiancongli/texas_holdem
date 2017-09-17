@@ -2,6 +2,7 @@
  * Define an exception when the card name is invalid.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public class CardException extends NullPointerException {
     /**

@@ -5,6 +5,7 @@ import java.util.List;
  * Use an index to identify the player, and every player has a hand of cards.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public class Player {
 

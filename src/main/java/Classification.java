@@ -4,17 +4,18 @@ import java.util.List;
  * The enum type of classifications of a poker hand.
  *
  * @author Tiancong Li
+ * @loginId tiancongl
  */
 public enum Classification {
     HIGH_CARD("r0-high"),
-    ONE_PAIR("Pair_of_r0s"),
-    TWO_PAIR("r0s_over_r1s"),
-    THREE_OF_A_KIND("Three_r0s"),
-    STRAIGHT("r0-high_straight"),
-    FLUSH("r0-high_flush"),
-    FULL_HOUSE("r0s_full_of_r1s"),
-    FOUR_OF_A_KIND("Four_r0s"),
-    STRAIGHT_FLUSH("r0-high_straight_flush");
+    ONE_PAIR("Pair of r0s"),
+    TWO_PAIR("r0s over r1s"),
+    THREE_OF_A_KIND("Three r0s"),
+    STRAIGHT("r0-high straight"),
+    FLUSH("r0-high flush"),
+    FULL_HOUSE("r0s full of r1s"),
+    FOUR_OF_A_KIND("Four r0s"),
+    STRAIGHT_FLUSH("r0-high straight flush");
 
     /**
      * The description template for each classification.
