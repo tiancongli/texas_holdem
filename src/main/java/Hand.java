@@ -16,14 +16,14 @@ public class Hand implements Comparable<Hand> {
     public static final int CARDS_NUM = 5;
 
     /**
+     * The cards of the hand.
+     */
+    private final List<Card> cards;
+
+    /**
      * The classification of the hand.
      */
     private Classification classification;
-
-    /**
-     * The cards of the hand.
-     */
-    private List<Card> cards;
 
     /**
      * The repeat components in the hand.
@@ -33,12 +33,12 @@ public class Hand implements Comparable<Hand> {
      *  2: {ACE}}
      *  means TWO, THREE, QUEEN occur only once, while ACE occurs twice.
      */
-    private Map<Integer, TreeSet<Rank>> repeats;
+    private final Map<Integer, TreeSet<Rank>> repeats;
 
     /**
      * The list of ranks which accounts for the description of the hand.
      */
-    private List<Rank> descRanks;
+    private final List<Rank> descRanks;
 
     /**
      * Init the hand, and init the cards in it.

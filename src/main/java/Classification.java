@@ -19,7 +19,7 @@ public enum Classification {
     /**
      * The description template for each classification.
      */
-    private String template;
+    private final String template;
 
     /**
      * Constructs a classification with its desc template.

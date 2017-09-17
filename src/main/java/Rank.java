@@ -23,12 +23,12 @@ public enum  Rank {
     /**
      * The short alias of rank.
      */
-    private String alias;
+    private final String alias;
 
     /**
      * The real name of the rank.
      */
-    private String name;
+    private final String name;
 
 
     /**

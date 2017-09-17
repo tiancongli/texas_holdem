@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,12 +11,12 @@ public class Game {
     /**
      * A list stores the players.
      */
-    private List<Player> players;
+    private final List<Player> players;
 
     /**
      * A list stores the winners.
      */
-    private List<Player> winners;
+    private final List<Player> winners;
 
     /**
      * Constructs the game, and init the players and winners.

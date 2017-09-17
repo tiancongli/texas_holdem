@@ -16,24 +16,32 @@ public class Poker {
     public static void main(String[] args) {
         // Check the number of args.
         if (args.length == 0 | args.length % 5 != 0) {
-            System.out.println("Error:_wrong_number_of_arguments;" +
-                    "_must_be_a_multiple_of_5");
+            System.out.println("Error: wrong number of arguments;" +
+                    " must be a multiple of 5");
             System.exit(1);
         }
 
         // init the list of rankSuit as input
         List<String> rankSuits = new ArrayList<>(Arrays.asList(args));
 
-        // create the game.
-        Game game = new Game(rankSuits);
+        try {
+            // create the game.
+            Game game = new Game(rankSuits);
 
-        // print all players.
-        for (int i = 0; i < game.getPlayersNumber(); i++) {
-            System.out.println(game.getPlayer(i));
+            // print all players.
+            for (int i = 0; i < game.getPlayersNumber(); i++) {
+                System.out.println(game.getPlayer(i));
+            }
+
+            // print the game result.
+            System.out.println(game.getResult());
+
+        } catch (CardException e) {
+            // catch the exception when card name is invalid.
+            System.out.println(e.getMessage());
+            System.exit(1);
         }
 
-        // print the game result.
-        System.out.println(game.getResult());
 
         /*
         Game game = new Game();

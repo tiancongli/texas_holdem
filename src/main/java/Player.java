@@ -11,12 +11,12 @@ public class Player {
     /**
      * The index of player, from 1 to N.
      */
-    private int index;
+    private final int index;
 
     /**
      * The hand of cards.
      */
-    private Hand hand;
+    private final Hand hand;
 
     /**
      * Construct the Player by index and hand.

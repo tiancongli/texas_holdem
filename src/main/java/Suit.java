@@ -12,7 +12,7 @@ public enum Suit {
     /**
      * The alias of each suit.
      */
-    private String alias;
+    private final String alias;
 
     /**
      * Constructs a suit with its alias.

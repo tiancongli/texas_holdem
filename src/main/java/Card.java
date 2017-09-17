@@ -9,12 +9,12 @@ public class Card implements Comparable<Card> {
     /**
      * The rank of the card.
      */
-    private Rank rank;
+    private final Rank rank;
 
     /**
      * The suit of the card.
      */
-    private Suit suit;
+    private final Suit suit;
 
     /**
      * Construct a card given the rankSuit string by calling another
@@ -31,10 +31,14 @@ public class Card implements Comparable<Card> {
      * Construct a card by the alias of rank and suit.
      * @param rank the alias of rank
      * @param suit the alias of suit
+     * @throws CardException when a card name is invalid
      */
-    public Card(String rank, String suit) {
+    public Card(String rank, String suit) throws CardException {
         this.rank = Rank.getRankByAlias(rank);
         this.suit = Suit.getSuitByAlias(suit);
+        if (this.rank == null | this.suit == null) {
+            throw new CardException(rank + suit);
+        }
     }
 
     public Rank getRank() {
