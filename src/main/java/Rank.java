@@ -1,7 +1,7 @@
 /**
  * The enum type of pokers'ranks.
- * The ranks, in order of increasing value, are 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack,
- * Queen, King, and Ace.
+ * The ranks, in order of increasing value, are 2, 3, 4, 5, 6, 7, 8, 9, 10,
+ * Jack, Queen, King, and Ace.
  *
  * @author Tiancong Li
  * @loginId tiancongl

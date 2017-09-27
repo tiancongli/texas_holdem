@@ -164,7 +164,7 @@ public class Hand implements Comparable<Hand> {
      * set up the classification and descRanks of the hand.
      */
     public void classify() {
-        if (isStraight() & isFlush()) {
+        if (isStraight() && isFlush()) {
             // if straight and flush, make it STRAIGHT_FLUSH, and set the
             // highest rank to the descRanks.
             classification = Classification.STRAIGHT_FLUSH;
@@ -176,7 +176,7 @@ public class Hand implements Comparable<Hand> {
             classification = Classification.FOUR_OF_A_KIND;
             descRanks.add(repeats.get(4).first());
 
-        } else if (repeats.get(3).size() == 1 & repeats.get(2).size() == 1) {
+        } else if (repeats.get(3).size() == 1 && repeats.get(2).size() == 1) {
             // if one card occurs 3 times, one occurs 2 times, make it
             // FULL_HOUSE, and set rank of 3 cards, and 2 cards to descRanks.
             classification = Classification.FULL_HOUSE;
@@ -246,7 +246,8 @@ public class Hand implements Comparable<Hand> {
     public int compareTo(Hand hand) {
         if (this.classification != hand.classification) {
             // first compare the classification
-            return this.classification.ordinal() - hand.classification.ordinal();
+            return this.classification.ordinal() - hand.classification
+                    .ordinal();
 
         } else {
             // using two ranks list to compare the hands when same class.

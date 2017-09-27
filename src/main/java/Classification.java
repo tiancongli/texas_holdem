@@ -40,7 +40,8 @@ public enum Classification {
     public String getDescByRanks(List<Rank> ranks) {
         String desc = template;
         for (int i = 0; i < ranks.size(); i++) {
-            desc = desc.replace(String.format("r%d", i), ranks.get(i).getName());
+            desc = desc.replace(String.format("r%d", i), ranks.get(i).getName
+                    ());
         }
         return desc;
     }

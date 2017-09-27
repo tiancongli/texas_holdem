@@ -18,6 +18,10 @@ public class PokerTest {
 
         };
 
-        Poker.main(a3);
+        //Poker.main(a3);
+        boolean a, b;
+        a = true;
+        b = false;
+        System.out.println(a ^ b);
     }
 }
